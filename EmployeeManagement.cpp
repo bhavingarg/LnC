@@ -1,19 +1,40 @@
-Class Employee
+using namespace std;
+class Employee
 {
-int id;
-string name;
-string department;
-bool: working
+private:
+    int id;
+    string name;
+    string department;
+    bool working;
 
 public:
-saveEmployeeTODatabase()
-printEmployeeDetailReportXML()
-printEmployeeDetailReportCSV()
-terminateEmployee()
-bool
-isWorking()
-}; 
+    void terminate()
+    {
+        working = false;
+    }
 
+    bool isWorking() const
+    {
+        return working;
+    }
+};
 
+class EmployeeRepository
+{
+public:
+    void save(const Employee &employee)
+    {
+    }
+};
 
-// This class violates SRP because it mixes multiple responsibilities such as employee data management, persistence, reporting (XML/CSV), and employment lifecycle handling, so changes in any one method would force modifications to this single class.
+class EmployeeReportService
+{
+public:
+    void printXmlReport(const Employee &employee)
+    {
+    }
+
+    void printCsvReport(const Employee &employee)
+    {
+    }
+};
