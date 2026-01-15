@@ -1,10 +1,11 @@
 import random
 
-def isNumber(number):
-    if number.isdigit() and 1<= int(number) <=100:
-        return True
-    else:
-        return False
+MIN_NUMBER = 1
+MAX_NUMBER = 100
+
+
+def isValidNumber(number):
+    return number.isdigit() and MIN_NUMBER <= int(number) <= MAX_NUMBER
 
 def main():
     randomNumber = random.randint(1,100)
@@ -12,7 +13,7 @@ def main():
     userGuess = input("Guess a number between 1 and 100:")
     numberOfGuesses = 0
     while not correctAnswer:
-        if not isNumber(userGuess):
+        if not isValidNumber(userGuess):
             userGuess = input("I wont count this one Please enter a number between 1 to 100")
             continue
         else:
